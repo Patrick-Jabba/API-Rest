@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CalculadoraController {
 	
 	@GetMapping("/home")
-	public String Welcome() {
+	public String welcome() {
 		return "Bem-vindo a calculadora rudimentar. Navegue pelos endpoints /soma; /subtracao; /multiplicacao ou /divisao";
 	}
 	
