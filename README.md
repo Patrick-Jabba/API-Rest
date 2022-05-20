@@ -1,5 +1,5 @@
-# API-Restful
-## Repositório para Exercícios e Projetos de Api
+# API-Restful 🤓
+## Repositório para Exercícios e Projetos de Api 🖥️
 
 ### Projeto 01 -Hello World ✔️
 
