@@ -40,7 +40,7 @@ public class TodoController {
 		return ResponseEntity.ok(todoService.buscarPorId(idTodo));
 	}
 
-	@PutMapping("/atualizar/{idTodo}")
+	@PutMapping("/atualizar/{posicaoLista}")
 	public ResponseEntity<Void> atualizar(@PathVariable Integer posicaoLista, @RequestBody Todo todo) {
 		todoService.atualizar(posicaoLista, todo);
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);

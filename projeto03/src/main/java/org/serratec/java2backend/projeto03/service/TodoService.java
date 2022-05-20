@@ -15,34 +15,19 @@ public class TodoService {
 
 	@Value("${url.serratec}")
 	private String urlSerratec;
-	
+
 //	@Autowired
 //	TodoRepository todoRepository;
 
+	// Lista Todo
 	List<Todo> lista = new ArrayList<>();
 
-	
-	//Método ADICIONAR 
-	public void adicionar(Todo todo) {
-		lista.add(todo);
-		
-	}
-
+	// Busca a Lista inteira com GET
 	public List<Todo> listaTodo() {
 		return this.lista;
 	}
-
-	public void atualizar(Integer posicaoLista, Todo todoDaApi) {
-		// idtodo é posição na lista/array
-		Todo todoDaListaSalva = new Todo();
-		todoDaListaSalva = lista.get(posicaoLista);
-
-		todoDaListaSalva.setId(todoDaApi.getId());
-		todoDaListaSalva.setDescription(todoDaApi.getDescription());
-		todoDaListaSalva.setTitle(todoDaApi.getTitle());
-
-	}
-
+	
+	//Buscar por ID Get
 	public Todo buscarPorId(Integer idTodo) throws TodoException {
 		Todo todoNoBanco = new Todo();
 		for (Todo todo : lista) {
@@ -54,6 +39,23 @@ public class TodoService {
 			throw new TodoException(idTodo);
 		}
 		return todoNoBanco;
+
+	}
+
+	// Método ADICIONAR
+	public void adicionar(Todo todo) {
+		lista.add(todo);
+
+	}
+
+	public void atualizar(Integer posicaoLista, Todo todoDaApi) {
+		// idtodo é posição na lista/array
+		Todo todoDaListaSalva = new Todo();
+		todoDaListaSalva = lista.get(posicaoLista);
+
+		todoDaListaSalva.setId(todoDaApi.getId());
+		todoDaListaSalva.setDescription(todoDaApi.getDescription());
+		todoDaListaSalva.setTitle(todoDaApi.getTitle());
 
 	}
 
