@@ -1,14 +1,18 @@
-package org.serratec.projeto04.model;
+package org.serratec.projeto04.exception;
 
-public class OperacaoModel {
+import org.serratec.projeto04.model.Tipo;
 
+public class OperacaoException extends Exception {
+
+	
+	private static final long serialVersionUID = 1L;
 	private Tipo tipo;
 	private Double valor;
 
-	public OperacaoModel() {
+	public OperacaoException() {
 	}
 
-	public OperacaoModel(Tipo tipo, Double valor) {
+	public OperacaoException(Tipo tipo, Double valor) {
 		super();
 		this.tipo = tipo;
 		this.valor = valor;
@@ -29,5 +33,4 @@ public class OperacaoModel {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-
 }
