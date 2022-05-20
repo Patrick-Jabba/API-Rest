@@ -2,9 +2,12 @@ package org.serratec.java2backend.projeto03.controller;
 
 import java.util.List;
 
+import org.serratec.java2backend.projeto03.exception.TodoException;
 import org.serratec.java2backend.projeto03.model.Todo;
 import org.serratec.java2backend.projeto03.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,18 +30,27 @@ public class TodoController {
 	}
 
 	@PostMapping("/adicionar")
-	public void adicionar(@RequestBody Todo todo) {
+	public ResponseEntity<Void> adicionar(@RequestBody Todo todo) {
 		todoService.adicionar(todo);
+		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
+
+	@GetMapping("/buscar/{idTodo}")
+	public ResponseEntity<Todo> buscarPorId(@PathVariable Integer idTodo) throws TodoException {
+		return ResponseEntity.ok(todoService.buscarPorId(idTodo));
 	}
 
 	@PutMapping("/atualizar/{idTodo}")
-	public void atualizar(@PathVariable Integer posicaoLista, @RequestBody Todo todo) {
+	public ResponseEntity<Void> atualizar(@PathVariable Integer posicaoLista, @RequestBody Todo todo) {
 		todoService.atualizar(posicaoLista, todo);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 
 	@DeleteMapping("/delete/{posicaoLista}")
-	public void deletar(@PathVariable int posicaoLista) {
+	public ResponseEntity<Void> deletar(@PathVariable int posicaoLista) {
 		todoService.deletar(posicaoLista);
-
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
+		
+	
 }
