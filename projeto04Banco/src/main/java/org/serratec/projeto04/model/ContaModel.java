@@ -1,10 +1,11 @@
 package org.serratec.projeto04.model;
 
-
 public class ContaModel {
 
 	private Integer numero;
+
 	private String titular;
+
 	private Double saldo;
 
 	public ContaModel() {
