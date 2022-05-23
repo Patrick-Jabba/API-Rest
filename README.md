@@ -11,7 +11,7 @@
 
 ### Projeto 04 - Exercício Conta Bancária - Valor: 3 Pontos ✔️
 
-### Projeto 04 Versão 02 - Agora o programa comunica com o banco de dados e possui Jpa Reposiory - Exercício Conta Bancária - Valor: 3 Pontos ✔️
+### Projeto 04 Versão 02 - Agora o programa comunica com o banco de dados - Exercício Conta Bancária - Valor: 3 Pontos ✔️
 
 ### Projeto 05 - CRUD com Lista - Valor: 3 Pontos ✔️
 
