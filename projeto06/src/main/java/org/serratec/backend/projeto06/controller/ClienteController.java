@@ -2,6 +2,8 @@ package org.serratec.backend.projeto06.controller;
 
 import java.util.List;
 
+import org.serratec.backend.projeto06.dto.ClienteDTO;
+import org.serratec.backend.projeto06.exception.ClienteException;
 import org.serratec.backend.projeto06.model.Cliente;
 import org.serratec.backend.projeto06.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,38 +26,35 @@ public class ClienteController {
 	ClienteService clienteService;
 
 	@PostMapping("/salvar")
-	public ResponseEntity<Void> salvar(@RequestBody Cliente cliente) {
-		clienteService.salvar(cliente);
+	public ResponseEntity<Void> salvar(@RequestBody ClienteDTO clienteDTO) {
+		clienteService.salvar(clienteDTO);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
-	@GetMapping("/buscar{idCliente}")
-	public ResponseEntity<Cliente> buscarPorId(@PathVariable Integer idCliente){
+	@GetMapping("/buscar/{idCliente}")
+	public ResponseEntity<ClienteDTO> buscarPorId(@PathVariable Integer idCliente) throws ClienteException {
 		return ResponseEntity.ok(clienteService.buscarPorId(idCliente));
 	}
 
 	@PutMapping("/atualizar/{idCliente}")
-	public ResponseEntity<Void> atualizar(
-			@PathVariable Integer idCliente, 
-			@RequestBody Cliente cliente){
-		clienteService.atualizar(idCliente, cliente);
+	public ResponseEntity<Void> atualizar(@PathVariable Integer idCliente, @RequestBody ClienteDTO clienteDTO) {
+		clienteService.atualizar(idCliente, clienteDTO);
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
-	
+
 	@DeleteMapping("/delete/{idCliente}")
-	public ResponseEntity<Void> delete(@PathVariable Integer idCliente){
+	public ResponseEntity<Void> delete(@PathVariable Integer idCliente) {
 		clienteService.delete(idCliente);
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
-	
+
 	@GetMapping("/lista")
-	public ResponseEntity<List<Cliente>> listaTodos(){
+	public ResponseEntity<List<Cliente>> listaTodos() {
 		return ResponseEntity.ok(clienteService.listarTodos());
 	}
-	
+
 	@PostMapping("/salvar-lista")
-	public ResponseEntity<Void> salvarLista(
-			@RequestBody List<Cliente> listaCliente){
+	public ResponseEntity<Void> salvarLista(@RequestBody List<Cliente> listaCliente) {
 		clienteService.salvarTodos(listaCliente);
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}

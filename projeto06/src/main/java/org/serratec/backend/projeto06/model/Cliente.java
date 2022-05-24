@@ -8,29 +8,36 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="cliente")
+@Table(name = "cliente")
 public class Cliente {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="cliente_cd_id")
+	@Column(name = "cliente_cd_id")
 	private Integer idCliente;
-	
-	@Column(name="cliente_tx_nome")
+
+	@Column(name = "cliente_tx_nome")
+	@NotNull
 	private String nome;
-	
-	@Column(name="cliente_tx_cpf")
+
+	@Size(max = 14)
+	@Column(name = "cliente_tx_cpf", unique = true)
 	private String cpf;
-	
-	@Column(name="numero_tx_telefone")
+
+	@Column(name = "numero_tx_telefone")
 	private String numeroTelefone;
-	
-	@Column(name="cliente_tx_email")
+
+	@Column(name = "cliente_tx_email")
 	private String email;
-	
-	@Column(name="cliente_dt_nascimento")
+
+	@Column(name = "cliente_dt_nascimento")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataNascimento;
 
 	public Cliente() {
