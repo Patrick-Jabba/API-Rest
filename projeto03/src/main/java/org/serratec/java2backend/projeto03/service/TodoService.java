@@ -26,8 +26,8 @@ public class TodoService {
 	public List<Todo> listaTodo() {
 		return this.lista;
 	}
-	
-	//Buscar por ID Get
+
+	// Buscar por ID Get
 	public Todo buscarPorId(Integer idTodo) throws TodoException {
 		Todo todoNoBanco = new Todo();
 		for (Todo todo : lista) {
@@ -63,6 +63,7 @@ public class TodoService {
 		lista.remove(posicaoLista);
 	}
 
+}
 //	public Todo findById(Integer idTodo) {
 //		//confirma 
 //		Optional<Todo> todo = todoRepository.findById(idTodo);
@@ -74,5 +75,3 @@ public class TodoService {
 //		
 //		return todoNoBanco;
 //	}
-
-}
