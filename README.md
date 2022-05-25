@@ -16,3 +16,5 @@
 ### Projeto 05 - CRUD com Lista - Valor: 3 Pontos ✔️
 
 ### Projeto 06 - Exercício com Jpa Repository, criação de tabela feito em aula 🔰
+
+### Projeto 07 - Gerenciador de livros com DTO e possibilidade de buscar os livros de forma ordenada pela escolha de um parametro ✔️
