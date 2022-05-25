@@ -1,5 +1,6 @@
 package org.serratec.backend.projeto07.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -61,6 +62,8 @@ public class LivroService {
 //		} else {
 			 
 	public void createLivro(LivroModel livroModel) {
+		LocalDate data = LocalDate.now().minusDays(1);
+		livroModel.setDataPublicacao(data);
 		livroRepository.save(livroModel);
 	}
 

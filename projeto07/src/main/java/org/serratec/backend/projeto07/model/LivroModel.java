@@ -1,6 +1,6 @@
 package org.serratec.backend.projeto07.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,7 +44,7 @@ public class LivroModel {
 	
 	@NotNull
 	@Column(name = "livro_dt_publicacao")
-	private Date dataPublicacao;
+	private LocalDate dataPublicacao;
 	
 	public LivroModel() {}
 }

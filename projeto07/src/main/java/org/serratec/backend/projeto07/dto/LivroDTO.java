@@ -1,6 +1,6 @@
 package org.serratec.backend.projeto07.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,7 @@ public class LivroDTO {
 	
 	private String autor;
 	
-	private Date dataPublicacao;
+	private LocalDate dataPublicacao;
 	
 	public LivroDTO() {}
 }
