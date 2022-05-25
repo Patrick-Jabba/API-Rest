@@ -1,5 +1,6 @@
 package org.serratec.backend.projeto07.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,23 +29,37 @@ public class LivroService {
 	}
 
 	public List<LivroModel> listarLivrosOrdenados(String operacao) {
-
-		if (operacao.equalsIgnoreCase("por-titulo")) {
-			return livroRepository.findAllByOrderByTituloAsc();
-
+		List<LivroModel> listaOrdenada = new ArrayList<>();
+		
+		
+		switch(operacao) {
+		case "titulo":
+			listaOrdenada = livroRepository.findAllByOrderByTituloAsc();
+			break;
+			
+		case "titulo-desc":
+			listaOrdenada = livroRepository.findAllByOrderByTituloDesc();
+			break;
+		
+		case "id-desc":
+			listaOrdenada = livroRepository.findAllByOrderByIdLivroDesc();
+			break;
 		}
-		if (operacao.equalsIgnoreCase("por-titulo-desc")) {
-			return livroRepository.findAllByOrderByTituloDesc();
+		return listaOrdenada;
 
-		}
-		if (operacao.equalsIgnoreCase("por-id-desc")) {
-			return livroRepository.findAllByOrderByIdLivroDesc();
-		} else {
-			return livroRepository.findAll();
-
-		}
 	}
-
+//		if (operacao.equalsIgnoreCase("por-titulo")) {
+//			return 
+//
+//		}
+//		if (operacao.equalsIgnoreCase("por-titulo-desc")) {
+//			return livroRepository.findAllByOrderByTituloDesc();
+//
+//		}
+//		if (operacao.equalsIgnoreCase("por-id-desc")) {
+//			return livroRepository.findAllByOrderByIdLivroDesc();
+//		} else {
+			 
 	public void createLivro(LivroModel livroModel) {
 		livroRepository.save(livroModel);
 	}
