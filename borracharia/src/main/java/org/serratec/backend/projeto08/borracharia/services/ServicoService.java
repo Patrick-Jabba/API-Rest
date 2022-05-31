@@ -5,11 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
-
+import org.serratec.backend.projeto08.borracharia.dto.RelatorioDTOInterface;
 import org.serratec.backend.projeto08.borracharia.dto.RelatorioServicoDTO;
 import org.serratec.backend.projeto08.borracharia.dto.ServicoDTO;
-
 import org.serratec.backend.projeto08.borracharia.exception.ServicoException;
 import org.serratec.backend.projeto08.borracharia.model.CarroModel;
 import org.serratec.backend.projeto08.borracharia.model.Servico;
@@ -187,5 +185,10 @@ public class ServicoService {
 			}
 			return relatorio;
 		}
+	}
+	
+	
+	public List<RelatorioDTOInterface> relatorio(){
+		return servicoRepository.relatorio();
 	}
 }

@@ -2,9 +2,9 @@ package org.serratec.backend.projeto08.borracharia.controller;
 
 import java.util.List;
 
-
 import javax.validation.Valid;
 
+import org.serratec.backend.projeto08.borracharia.dto.RelatorioDTOInterface;
 import org.serratec.backend.projeto08.borracharia.dto.RelatorioServicoDTO;
 import org.serratec.backend.projeto08.borracharia.dto.ServicoDTO;
 import org.serratec.backend.projeto08.borracharia.exception.ServicoException;
@@ -74,4 +74,9 @@ public class ServicoController {
 
     }
 
+	@GetMapping("/relatorio")
+	public List<RelatorioDTOInterface> relatorio(){
+		return servicoService.relatorio();
+	}
+	
 }
