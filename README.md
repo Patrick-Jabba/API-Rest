@@ -18,3 +18,6 @@
 ### Projeto 06 - Exercício com Jpa Repository, criação de tabela feito em aula 🔰
 
 ### Projeto 07 - Gerenciador de livros com DTO + buscar os livros de forma ordenada pela escolha de um parametro - Valor: 3 Pontos ✔️
+
+### Projeto Borracharia - Valor: 100 pontos ✔️
+
