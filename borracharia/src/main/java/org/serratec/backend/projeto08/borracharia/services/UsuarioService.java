@@ -8,7 +8,7 @@ import org.serratec.backend.projeto08.borracharia.model.UsuarioModel;
 import org.serratec.backend.projeto08.borracharia.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,21 +18,21 @@ public class UsuarioService {
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	
-//	@Autowired
-	//private PasswordEncoder encoder;
+	@Autowired
+	private PasswordEncoder encoder;
 	
 	
 	private UsuarioDTO mapToDTO(UsuarioModel usuario, UsuarioDTO udto) {
 		udto.setIdUsuario(usuario.getIdUsuario());
 		udto.setUsername(usuario.getUsername());
 		udto.setPassword(usuario.getPassword());
-		
+		udto.setPassword(encoder.encode(usuario.getPassword()));
 		return udto;
 	}
 	
 	private UsuarioModel mapToModel(UsuarioModel usuario, UsuarioDTO dto) {
 		usuario.setUsername(dto.getUsername());
-		usuario.setPassword(dto.getPassword());
+		usuario.setPassword(encoder.encode(dto.getPassword()));
 		return usuario;
 	}
 // ======================= Métodos HTTP ============
