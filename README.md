@@ -1,4 +1,4 @@
-# API-Restful 🤓
+# API-Restful 🤓 <img src='https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white' /><img src='https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white' />
 ## Repositório para Exercícios e Projetos de Api 🖥️
 
 ## Lojas Amazonas - Projeto final do grupo 4 da matéria de API com a aplicação de todos os conceitos aprendidos - Valor 100 Pontos ✔️
